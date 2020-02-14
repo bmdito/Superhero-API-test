@@ -13,9 +13,13 @@ $("#movie-butt").on("click", function(event) {
     url: proxy + query,
     method: "GET"
   }).then(function(response) {
-    console.log(response.results[0].biography);
+    // console.log(response);
+    // console.log(response.results[0].biography);
     let bio = response.results[0].biography;
     let app = response.results[0].appearance;
+    console.log(response.results[0].image.url);
+    let url = response.results[0].image.url;
+    $("#image").attr("src", url);
     $("#fullName").text(bio["full-name"]);
     $("#birthplace").text(bio["place-of-birth"]);
     $("#height").text(app.height[0]);
